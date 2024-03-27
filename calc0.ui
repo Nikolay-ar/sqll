@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>878</width>
+    <height>211</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Калькулятор</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTableWidget" name="tableWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>20</y>
+      <width>321</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <row>
+     <property name="text">
+      <string>a</string>
+     </property>
+    </row>
+    <row>
+     <property name="text">
+      <string>b</string>
+     </property>
+    </row>
+    <column>
+     <property name="text">
+      <string>1</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>2</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>3</string>
+     </property>
+    </column>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>620</x>
+      <y>50</y>
+      <width>131</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {background-color: rgb(51,122,183); color: White; border-radius: 5px;}                           QPushButton:pressed {background-color:rgb(31,101,163) ; }</string>
+    </property>
+    <property name="text">
+     <string>Добавить строку</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

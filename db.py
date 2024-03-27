@@ -1,19 +1,30 @@
 import sys
-
-from PyQt5.QtCore import Qt
+from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtCore import Qt, QRect
 from PyQt5.QtSql import QSqlDatabase, QSqlTableModel
 from PyQt5.QtWidgets import (
     QApplication,
     QMainWindow,
     QMessageBox,
     QTableView,
+    QPushButton,
 )
+bt_style = ("QPushButton {background-color: rgb(51,122,183); color: White; border-radius: 24px;}"
+                           "QPushButton:pressed {background-color:rgb(31,101,163) ; }")
 
 class Contacts(QMainWindow):
     def __init__(self, parent=None):
         super().__init__(parent)
+        
         self.setWindowTitle("riders")
         self.resize(1115, 200)
+     
+        pybutton = QPushButton('Click me', self)
+        # pybutton.clicked.connect(self.clickMethod)
+        pybutton.resize(100,32)
+        pybutton.move(950, 50)
+
+
         # Set up the model
         self.model = QSqlTableModel(self)
         self.model.setTable("riders")
@@ -30,7 +41,28 @@ class Contacts(QMainWindow):
         self.view = QTableView()
         self.view.setModel(self.model)
         self.view.resizeColumnsToContents()
+
+
+
+
         self.setCentralWidget(self.view)
+
+
+    def _addRow(self):
+        self.model.insertRow(-1)
+
+    def addRecord(self):
+        row = self.model.rowCount()
+        self.model.insertRow(row)
+        index = self.model.index(row, 1)
+        self.view.setCurrentIndex(index)
+        self.view.edit(index)
+    
+    def _removeRow(self):
+        self.model.removeRow()
+    def _copyRow(self):
+        pass
+
 
 def createConnection():
     con = QSqlDatabase.addDatabase("QSQLITE")
@@ -45,8 +77,10 @@ def createConnection():
     return True
 
 app = QApplication(sys.argv)
+
 if not createConnection():
     sys.exit(1)
+
 win = Contacts()
 win.show()
 sys.exit(app.exec_())
