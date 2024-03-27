@@ -18,6 +18,7 @@ ORDER BY type DESC, name
 LIMIT 12 OFFSET 0
 ;''')
 
+
 # Python превращает результирующую выборку в итерируемый объект,
 # который можно перебрать циклом:
 for result in cur:

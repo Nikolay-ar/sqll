@@ -12,7 +12,7 @@ cur.execute(
 # release_year
      '''
 SELECT *
-FROM riders_trucks
+FROM riders
 
 ''')
 
@@ -20,7 +20,7 @@ FROM riders_trucks
 # который можно перебрать циклом:
 for result in cur:
     print(result)
-fieldnames=[f[0] for f in cur.description]
-print(f"Поля в таблице riders \n {fieldnames}")
+field_names = [f[0] for f in cur.description]
+print(f"Поля в таблице riders \n {field_names}")
 # При получении данных из таблицы коммит не нужен.
 con.close()
